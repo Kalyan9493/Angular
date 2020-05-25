@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {SwPush} from '@angular/service-worker';
+import { AuthServiceService } from './auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'App';
-}
+  constructor() {}
+
+
+ }
+

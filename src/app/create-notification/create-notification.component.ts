@@ -82,10 +82,26 @@ export class CreateNotificationComponent implements OnInit {
       console.log('Post Announcement Called');
       console.log(this.notificationForm.value);
       this.authService.postAnnouncement(fd).subscribe( result =>{
-
-        console.log(result);
+        console.log("Announcement :",result);
         alert("Message Sent Succesfully");
         this.router.navigateByUrl('/admin')
+        this.authService.getDeviceTokens().subscribe(tokens =>{
+          console.log( "Token :"+tokens[0].token);
+          const pushNotificationData = {
+            token:tokens[0].token,
+            payload:{
+              notification:{
+                title:result[0].title,
+                body:result[0].description
+              }
+            }
+
+          }
+          console.log(pushNotificationData)
+          this.authService.pushNotification(pushNotificationData).subscribe(result =>{
+            console.log(result);
+          })
+        })
       },(error:any)=>alert("Error in sending Annnouncement"))
     }
   }

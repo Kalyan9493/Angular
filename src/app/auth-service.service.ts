@@ -42,4 +42,10 @@ export class AuthServiceService {
   getAnnouncementByTags(tags:String):Observable<any>{
     return this.httpClient.get(environment.api+'/getannouncementbytags/'+tags);
   }
+  pushNotification(pushNotificationData :any):Observable<any>{
+    return this.httpClient.post(environment.api+'/firebase/notification',pushNotificationData);
+  }
+  getDeviceTokens():Observable<any>{
+    return this.httpClient.get(environment.api+'/getdevicetokens');
+  }
 }

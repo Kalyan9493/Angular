@@ -1,7 +1,4 @@
 
-.mat-card{
-  background-color: snow;
-}
 .toolbar {
   position: absolute;
   top: 0;
@@ -22,6 +19,8 @@
   .mat-card {
       margin: 10px !important;
       border-radius: 10px;
+      width: 800px;
+      height: 1000px;
   }
   #logout{
       background-color: #5b8eee;

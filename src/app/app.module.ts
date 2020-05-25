@@ -18,6 +18,8 @@ import { AuthGuard } from './auth.guard';
 import {TokenInterceptorService} from './token-interceptor.service';
 import { CreateNotificationComponent } from './create-notification/create-notification.component';
 import { ViewNotificationComponent } from './admin/view-notification.component';
+import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { ViewNotificationComponent } from './admin/view-notification.component';
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthGuard,{
     provide: HTTP_INTERCEPTORS,
@@ -48,4 +51,23 @@ import { ViewNotificationComponent } from './admin/view-notification.component';
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor(update:SwUpdate,push:SwPush){
+    update.available.subscribe(update =>{
+      console.log("Update Available");
+    })
+
+    push.messages.subscribe(msg =>{
+      console.log(msg);
+      alert(msg);
+    })
+
+    const key = 'BAWZEHAAfI9610zX2CuxXgcO9ZvtBxzdKlAJDcE19rEJ1WjRk1o2NV7DDdp-MLlq1Ueh4dZOBv3gLHeo3-LDOKc';
+    push.requestSubscription({serverPublicKey:key}).then(pushSubscription =>{
+      console.log(pushSubscription.toJSON());
+    })
+
+  }
+
+ }
