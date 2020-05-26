@@ -54,6 +54,7 @@ import { environment } from '../environments/environment';
 export class AppModule {
 
   constructor(update:SwUpdate,push:SwPush){
+    if(push.isEnabled){
     update.available.subscribe(update =>{
       console.log("Update Available");
     })
@@ -67,6 +68,7 @@ export class AppModule {
     push.requestSubscription({serverPublicKey:key}).then(pushSubscription =>{
       console.log(pushSubscription.toJSON());
     })
+  }
 
   }
 
