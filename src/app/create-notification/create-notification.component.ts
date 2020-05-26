@@ -86,9 +86,13 @@ export class CreateNotificationComponent implements OnInit {
         alert("Message Sent Succesfully");
         this.router.navigateByUrl('/admin')
         this.authService.getDeviceTokens().subscribe(tokens =>{
+         var tokenArray = [];
+          tokens.forEach(element => {
+            tokenArray.push(element.token);
+          });
           console.log( "Token :"+tokens[0].token);
           const pushNotificationData = {
-            token:tokens[0].token,
+            token:tokenArray,
             payload:{
               notification:{
                 title:result[0].title,

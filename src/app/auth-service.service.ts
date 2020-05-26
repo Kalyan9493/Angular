@@ -46,6 +46,6 @@ export class AuthServiceService {
     return this.httpClient.post(environment.api+'/firebase/notification',pushNotificationData);
   }
   getDeviceTokens():Observable<any>{
-    return this.httpClient.get(environment.api+'/getdevicetokens');
+    return this.httpClient.get(environment.api+'/devicetoken');
   }
 }
