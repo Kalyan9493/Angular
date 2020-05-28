@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../auth-service.service';
+import {environment} from '../../environments/environment'
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -9,7 +10,7 @@ import { AuthServiceService } from '../auth-service.service';
 export class AdminComponent implements OnInit {
 
   public postList: any = [];
-  
+  environmentURL:String = environment.api + "/";
   constructor(private authService: AuthServiceService, private router: Router) { }
   buttonDisabled:boolean = true;
   name:String ='';

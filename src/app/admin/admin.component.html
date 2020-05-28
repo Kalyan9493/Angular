@@ -20,7 +20,7 @@
 			<b style="margin:0 10%;">Date:{{post.date}}</b>
 		  </mat-card-header>
 		  <mat-card-content>
-			<div *ngIf="post.imageURL" style=" float: right;"><img style="width: 200px; height: 200px;"  src="{{post.imageURL}}"></div>
+			<div *ngIf="post.imageURL" style=" float: right;"><img style="width: 200px; height: 200px;"  src="{{environmentURL + post.imageURL}}"></div>
              <b>Description:</b> 
             <div [innerHTML]="post.description"></div><br>
 		  </mat-card-content>

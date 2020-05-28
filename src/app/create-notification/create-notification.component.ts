@@ -13,6 +13,8 @@ export class CreateNotificationComponent implements OnInit {
   selectedFile: File=null;
   tagList:String [] = [];
   scheduleHidden:Boolean = true;
+  sendnowButton:Boolean = false;
+  saveAnnouncementButton:Boolean = false;
   constructor(private router:Router,private authService:AuthServiceService,private fb:FormBuilder) { 
     this.notificationForm = this.fb.group({
       title:[''],
@@ -65,6 +67,7 @@ export class CreateNotificationComponent implements OnInit {
     console.log(this.tagList)
   }
   postAnnouncement(){
+   
     const fd = new FormData();
     if(this.selectedFile != null){
       fd.append('image',this.selectedFile,this.selectedFile.name);
@@ -81,6 +84,8 @@ export class CreateNotificationComponent implements OnInit {
     if(this. notificationForm.valid){
       console.log('Post Announcement Called');
       console.log(this.notificationForm.value);
+      this.sendnowButton = true;
+      this.saveAnnouncementButton = true;
       this.authService.postAnnouncement(fd).subscribe( result =>{
         console.log("Announcement :",result);
         alert("Message Sent Succesfully");

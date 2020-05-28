@@ -40,13 +40,13 @@
 <p><label>selected Tags:</label></p>
  <p *ngFor="let tag of tagList"><b>{{tag}}</b></p><br><br>
   
-  <p><input type="button" (click) = "postAnnouncement()" value="Send Now" style="height: 40px; width: 100px; margin: 0 40%;"></p>
+  <p><input type="button"   [disabled]="sendnowButton"  (click) = "postAnnouncement()"  value="Send Now" style="height: 40px; width: 100px; margin: 0 40%;"></p>
   <p><b style="margin: 0  45%;">OR</b></p>
   <p><input type="button" (click) = "scheduleAnnouncement()" value="Schedule Announcement" style="height: 35px; width: auto; margin: 0 30%;"></p>
   <div [hidden]= "scheduleHidden">
   <p><label for="Sheduled Time/Date">Schedule Date and Time:</label></p>
   <p><input type="datetime-local" id="Sheduled Time/Date" name="Schedule Time/Date" size="60" formControlName = "scheduledTime"></p><br>
-  <p><input type="button" (click) = "postAnnouncement()" value="Save Announcement" style="height: 35px; width: auto; margin: 0 35%;"></p>
+  <p><input type="button" [disabled] = "saveAnnouncementButton" (click) = "postAnnouncement()" value="Save Announcement" style="height: 35px; width: auto; margin: 0 35%;"></p>
 </div>
 </mat-card>
 </div>
