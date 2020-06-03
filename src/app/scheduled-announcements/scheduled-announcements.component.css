@@ -1,0 +1,36 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    background-color: #5b8eee;
+    color: white;
+    font-weight: 300;
+    border-radius: 5px;
+  }
+    #dashboard {
+      padding: 120px;
+    }
+    
+    .mat-card {
+        margin-bottom: 20px !important;
+        margin-left: 150px;
+        border-radius: 10px;
+        width: 800px;
+        height: 1000px;
+    }
+    #logout{
+        background-color: #5b8eee;
+        border-color: transparent;
+        color: #fff;
+        position: absolute;
+        right: 50px;
+        cursor: pointer;
+        width: auto;
+         height: 50px ;
+         font-size: medium;
+      
+    }

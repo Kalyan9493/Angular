@@ -1,0 +1,47 @@
+
+  button{
+    background-color: #5b8eee;
+    border-color: transparent;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    width: 100px;
+     height: 50px ;
+     font-size: medium;
+  }
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    background-color: #5b8eee;
+    color: white;
+    font-weight: 300;
+  }
+  .span1{
+    padding-left: 30em;
+    position: left; 
+    font-size: medium;
+  }
+  
+  
+  .form1{
+    padding-top: 2em;
+    padding-left: 25em;
+    width:fit-content;
+    float:left; 
+  }
+  .mat-card{
+    border-radius: 10px;
+    width: 500px;
+    padding-top: 2em;
+    background-color:rgba(140, 240, 227, 0.527);
+  }
+  input,textarea{
+    border-radius: 15px;
+    font-size: large;
+  }

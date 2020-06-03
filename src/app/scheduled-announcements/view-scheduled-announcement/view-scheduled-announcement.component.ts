@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute } from '@angular/router';
-import { AuthServiceService } from '../auth-service.service';
+import { AuthServiceService } from '../../auth-service.service';
 import {Router} from '@angular/router';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 
 @Component({
-  selector: 'app-view-notification',
-  templateUrl: './view-notification.component.html',
-  styleUrls: ['./view-notification.component.css']
+  selector: 'app-view-scheduled-announcement',
+  templateUrl: './view-scheduled-announcement.component.html',
+  styleUrls: ['./view-scheduled-announcement.component.css']
 })
-export class ViewNotificationComponent implements OnInit {
-
+export class ViewScheduledAnnouncementComponent implements OnInit {
   notification;
   imageDisabled:Boolean = true;
   environmentURL:String = environment.api + "/";
@@ -18,7 +17,7 @@ export class ViewNotificationComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    this.authService.getAnnouncementById(id).subscribe(result =>{
+    this.authService.getScheduledAnnouncementById(id).subscribe(result =>{
      
       this.notification = result;
       console.log(typeof this.notification)
@@ -29,12 +28,11 @@ export class ViewNotificationComponent implements OnInit {
      
     }, (error:any)=>alert("Announcements Cannot be Displayed"));
   }
- 
 
-  
   logout(){
     localStorage.clear();
     this.authService.logout();
     this.router.navigateByUrl('');
   }
+
 }

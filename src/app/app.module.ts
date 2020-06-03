@@ -20,6 +20,9 @@ import { CreateNotificationComponent } from './create-notification/create-notifi
 import { ViewNotificationComponent } from './admin/view-notification.component';
 import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ScheduledAnnouncementsComponent } from './scheduled-announcements/scheduled-announcements.component';
+import { ViewScheduledAnnouncementComponent } from './scheduled-announcements/view-scheduled-announcement/view-scheduled-announcement.component';
+import { EditScheduledAnnouncementComponent } from './scheduled-announcements/edit-scheduled-announcement/edit-scheduled-announcement.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { environment } from '../environments/environment';
     LoginComponent,
     AdminComponent,
     CreateNotificationComponent,
-    ViewNotificationComponent
+    ViewNotificationComponent,
+    ScheduledAnnouncementsComponent,
+    ViewScheduledAnnouncementComponent,
+    EditScheduledAnnouncementComponent
   ],
   imports: [
     BrowserModule,

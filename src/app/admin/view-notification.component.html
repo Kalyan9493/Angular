@@ -21,12 +21,12 @@
             <div [innerHTML]="notification.description"></div><br><br>
             <b>Details:</b> 
             <div [innerHTML]="notification.details"></div><br><br>
-            <b>Link:</b> 
-            <div [innerHTML]="notification.link"></div><br>
-           
+            <div *ngIf = "notification.link"> <b>Link:</b> 
+           <div  [innerHTML]="notification.link"></div><br>
+          </div>
             <div [hidden]= "imageDisabled">
               <b>Image:</b> 
-        <p>  <img   [innerHTML] [src]="notification.imageURL" style="width: 600px; height: 400px;" ></p>
+        <p>  <img   [innerHTML] src="{{environmentURL + notification.imageURL}}" style="width: 600px; height: 400px;" ></p>
         </div>
           </mat-card-content>
 		</mat-card>

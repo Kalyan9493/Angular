@@ -1,0 +1,35 @@
+<div class ="viewNotification">
+    <div class="toolbar" role="banner">
+    
+        <h1><b> <span>Omniwyse Announcements</span></b></h1>
+    
+     <button id="button" class = "span1" (click)="logout()"><b>LOGOUT</b></button> 
+     
+     </div>
+    
+     <div id="dashboard" >
+        <div class="notifications-block" fxLayout = "column" > 
+            <mat-card  class="mat-elevation-z8 notification-card" fxFlex="calc(33%-20px)" fxLayoutGap="20px" layout-align="center center">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title> Title:{{notification.title}}</mat-card-title>
+                <b style="margin: 0 10%;">Date:{{notification.date}}</b>
+              </mat-card-header>
+              <mat-card-content>
+                 <b>Description:</b> 
+                <div [innerHTML]="notification.description"></div><br><br>
+                <b>Details:</b> 
+                <div [innerHTML]="notification.details"></div><br><br>
+                <div *ngIf = "notification.link"> <b>Link:</b> 
+               <div  [innerHTML]="notification.link"></div><br>
+              </div>
+                <div [hidden]= "imageDisabled">
+                  <b>Image:</b> 
+            <p>  <img   [innerHTML] src="{{environmentURL + notification.imageURL}}" style="width: 600px; height: 400px;" ></p>
+            </div>
+              </mat-card-content>
+            </mat-card>
+        </div>
+    
+    </div>
+    </div>

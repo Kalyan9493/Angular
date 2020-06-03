@@ -9,7 +9,7 @@ import {environment} from '../../environments/environment'
 })
 export class AdminComponent implements OnInit {
 
-  public postList: any = [];
+  public announcementList: any = [];
   environmentURL:String = environment.api + "/";
   constructor(private authService: AuthServiceService, private router: Router) { }
   buttonDisabled:boolean = true;
@@ -22,9 +22,9 @@ export class AdminComponent implements OnInit {
       this.buttonDisabled=false;
       this.authService.getAnnouncement().subscribe(result =>{
         console.log(result);
-        this.postList = result;
+        this.announcementList = result;
       },(error:any)=>alert("Announcements Cannot be Displayed"));
-     console.log(this.postList);
+     console.log(this.announcementList);
 
     }else{
       var userid = localStorage.getItem('id');
@@ -36,7 +36,7 @@ export class AdminComponent implements OnInit {
       })
       setTimeout(()=>{
         this.authService.getAnnouncementByTags(tags).subscribe(announcements=>{
-          this.postList = announcements;
+          this.announcementList = announcements;
           console.log(announcements)
         })
       },1000)
@@ -56,6 +56,9 @@ export class AdminComponent implements OnInit {
   }
   goToNotificationView(notificationId:String) {
     this.router.navigate(['/admin',notificationId]);
+  }
+  gotoScheduledNotification(){
+    this.router.navigateByUrl('/scheduled-notification');
   }
 
 }
