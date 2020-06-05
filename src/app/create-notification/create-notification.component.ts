@@ -90,33 +90,6 @@ export class CreateNotificationComponent implements OnInit {
         console.log("Announcement :",result);
         alert("Message Sent Succesfully");
         this.router.navigateByUrl('/admin')
-        if(this.notificationForm.get('scheduledTime').value){
-          console.log("Scheduled Announcement")
-        }else{
-          this.authService.getDeviceTokens().subscribe(tokens =>{
-            var tokenArray = [];
-             tokens.forEach(element => {
-               tokenArray.push(element.token);
-             });
-             console.log( "Token :"+tokens[0].token);
-             const pushNotificationData = {
-               token:tokenArray,
-               payload:{
-                 notification:{
-                   title:result[0].title,
-                   body:result[0].description
-                 }
-               }
-   
-             }
-             console.log(pushNotificationData)
-             this.authService.pushNotification(pushNotificationData).subscribe(result =>{
-               console.log(result);
-             })
-           })
-
-        }
-       
       },(error:any)=>alert("Error in sending Annnouncement"))
     }
   }
