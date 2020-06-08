@@ -47,8 +47,6 @@ export class EditScheduledAnnouncementComponent implements OnInit {
       scheduledTime:this.notification.scheduledDate
 
       })
-      console.log(typeof this.notification)
-      console.log(result);
     }, (error:any)=>alert("Announcements Cannot be Displayed"));
 
    
@@ -98,22 +96,12 @@ export class EditScheduledAnnouncementComponent implements OnInit {
     fd.append('link',this.notificationForm.get('link').value);
     fd.append('tags',JSON.stringify(this.tagList));
     fd.append('scheduledTime',this.notification.scheduledDate);
-    console.log(this.notificationForm.get('tags').value);
-    console.log(this.notification.scheduledDate)
-    console.log(fd);
-    console.log(this.notificationForm.value)
-    console.log("Tags: "+this.notificationForm.get('tags').value);
     this.notificationForm.patchValue({
       tags:this.tagList
     })
     if(this. notificationForm.valid){
-      console.log('Post Announcement Called');
-      console.log(this.notificationForm.value);
       this.saveAnnouncementButton = true;
-      console.log(fd)
-
       this.authService.updateAnnouncement(id,this.notificationForm.value).subscribe( result =>{
-        console.log("Announcement :",result);
         alert("Announcement Updated Succesfully");
         this.router.navigateByUrl('/scheduled-notification')
       },(error:any)=>alert("Error in sending Annnouncement"))

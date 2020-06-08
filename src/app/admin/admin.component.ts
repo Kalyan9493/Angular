@@ -17,27 +17,22 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.name = localStorage.getItem('name');
     var  admin=localStorage.getItem('isAdmin');
-    console.log(admin);
     if(admin === 'true'){
       this.buttonDisabled=false;
       this.authService.getAnnouncement().subscribe(result =>{
-        console.log(result);
         this.announcementList = result;
       },(error:any)=>alert("Announcements Cannot be Displayed"));
-     console.log(this.announcementList);
 
     }else{
       var userid = localStorage.getItem('id');
       var tags;
       this.authService.getTagsByUserId(userid).subscribe(result=>{
-        console.log(result);
          tags = JSON.stringify(result);
        
       })
       setTimeout(()=>{
         this.authService.getAnnouncementByTags(tags).subscribe(announcements=>{
           this.announcementList = announcements;
-          console.log(announcements)
         })
       },1000)
       

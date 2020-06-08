@@ -48,7 +48,6 @@ export class CreateNotificationComponent implements OnInit {
   }
   getTags(){
     this.authService.getTags().subscribe( result =>{
-      console.log(result[0])
     },(error:any)=>alert("Invalid Username Or Password"))
 
   }
@@ -63,8 +62,6 @@ export class CreateNotificationComponent implements OnInit {
     if(this.notificationForm.get('tags').value!=="" &&(count === 0 || this.tagList.length === 0)){
       this.tagList.push(this.notificationForm.get('tags').value);
     }
-    
-    console.log(this.tagList)
   }
   postAnnouncement(){
    
@@ -79,15 +76,10 @@ export class CreateNotificationComponent implements OnInit {
     fd.append('link',this.notificationForm.get('link').value);
     fd.append('tags',JSON.stringify(this.tagList));
     fd.append('scheduledTime',this.notificationForm.get('scheduledTime').value);
-    console.log(this.notificationForm.get('scheduledTime').value)
-    console.log(fd);
     if(this. notificationForm.valid){
-      console.log('Post Announcement Called');
-      console.log(this.notificationForm.value);
       this.sendnowButton = true;
       this.saveAnnouncementButton = true;
       this.authService.postAnnouncement(fd).subscribe( result =>{
-        console.log("Announcement :",result);
         alert("Message Sent Succesfully");
         this.router.navigateByUrl('/admin')
       },(error:any)=>alert("Error in sending Annnouncement"))

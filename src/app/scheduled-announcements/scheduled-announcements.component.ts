@@ -17,7 +17,6 @@ export class ScheduledAnnouncementsComponent implements OnInit {
   ngOnInit(): void {
     this.name = localStorage.getItem('name');
     this.authService.getScheduledAnnouncements().subscribe(result =>{
-      console.log(result);
       this.announcementList = result;
     },(error:any)=>alert("Announcements Cannot be Displayed"));
   }

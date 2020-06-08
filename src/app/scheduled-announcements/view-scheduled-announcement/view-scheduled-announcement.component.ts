@@ -20,11 +20,9 @@ export class ViewScheduledAnnouncementComponent implements OnInit {
     this.authService.getScheduledAnnouncementById(id).subscribe(result =>{
      
       this.notification = result;
-      console.log(typeof this.notification)
       if(this.notification.imageURL){
         this.imageDisabled=false;
       }
-      console.log(result);
      
     }, (error:any)=>alert("Announcements Cannot be Displayed"));
   }
