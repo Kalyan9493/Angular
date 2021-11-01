@@ -1,7 +1,7 @@
 
   <div class="toolbar" role="banner">
 
-    <h1><b> <span style="margin: 0 20px;">Omniwyse Announcements</span></b></h1>
+    <h1><b> <span style="margin: 0 20px;">College Announcements</span></b></h1>
   
    <button mat.raised.button id="logout" (click)="logout()"><b>Logout</b></button> 
    
@@ -31,9 +31,11 @@
     <p><input type="file" id="myFile" formControlName = "image" (change)="onFileSelected($event)"></p><br><br>
   <p><label>select tags:</label></p>
   <p style="width: 400px;"> <select style="height: 30px; border-radius: 10px; width: 200px;" formControlName = "tags">
-  <option>employees</option>
-  <option>javaTeam</option>
-  <option>javascriptTeam</option>
+  <option>ALL</option>
+  <option>CSE</option>
+  <option>ECE</option>
+  <option>EEE</option>
+  <option>MECH</option>
   </select>&nbsp;&nbsp;&nbsp;&nbsp;
      <input type="button" value="Add" style="height: 30px; width: 80px;" (click)="addToTags()"></p>
 
